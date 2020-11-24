@@ -1,0 +1,117 @@
+rm -f dwm drw.o dwm.o util.o dwm-6.2.tar.gz
+dwm build options:
+CFLAGS   = -std=c99 -pedantic -Wall -Wno-deprecated-declarations -Os -I/usr/include/X11 -I/usr/include/freetype2 -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_C_SOURCE=2 -DVERSION="6.2" -DXINERAMA
+LDFLAGS  = -L/usr/lib/X11 -lX11 -lXinerama -lfontconfig -lXft
+CC       = cc
+cc -c -std=c99 -pedantic -Wall -Wno-deprecated-declarations -Os -I/usr/include/X11 -I/usr/include/freetype2 -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_C_SOURCE=2 -DVERSION=\"6.2\" -DXINERAMA drw.c
+cc -c -std=c99 -pedantic -Wall -Wno-deprecated-declarations -Os -I/usr/include/X11 -I/usr/include/freetype2 -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_C_SOURCE=2 -DVERSION=\"6.2\" -DXINERAMA dwm.c
+dwm.c:273:12: error: ‘SchemeNorm’ redeclared as different kind of symbol
+  273 | static int SchemeNorm = 0, SchemeSel = 1;
+      |            ^~~~~~~~~~
+dwm.c:62:8: note: previous definition of ‘SchemeNorm’ was here
+   62 | enum { SchemeNorm, SchemeSel, SchemeWarn, SchemeUrgent }; /* color schemes */
+      |        ^~~~~~~~~~
+dwm.c:273:28: error: ‘SchemeSel’ redeclared as different kind of symbol
+  273 | static int SchemeNorm = 0, SchemeSel = 1;
+      |                            ^~~~~~~~~
+dwm.c:62:20: note: previous definition of ‘SchemeSel’ was here
+   62 | enum { SchemeNorm, SchemeSel, SchemeWarn, SchemeUrgent }; /* color schemes */
+      |                    ^~~~~~~~~
+In file included from dwm.c:279:
+config.h:22:11: warning: type defaults to ‘int’ in declaration of ‘colors’ [-Wimplicit-int]
+   22 | static   *colors[][3]      = {
+      |           ^~~~~~
+config.h:23:10: error: nonconstant array index in initializer
+   23 |         [SchemeNorm] =   { col_gray3, col_gray1,  col_gray2 },
+      |          ^~~~~~~~~~
+config.h:23:10: note: (near initialization for ‘colors’)
+config.h:23:28: warning: initialization of ‘int *’ from incompatible pointer type ‘char *’ [-Wincompatible-pointer-types]
+   23 |         [SchemeNorm] =   { col_gray3, col_gray1,  col_gray2 },
+      |                            ^~~~~~~~~
+config.h:23:28: note: (near initialization for ‘colors[0][0]’)
+config.h:23:39: warning: initialization of ‘int *’ from incompatible pointer type ‘char *’ [-Wincompatible-pointer-types]
+   23 |         [SchemeNorm] =   { col_gray3, col_gray1,  col_gray2 },
+      |                                       ^~~~~~~~~
+config.h:23:39: note: (near initialization for ‘colors[0][1]’)
+config.h:23:51: warning: initialization of ‘int *’ from incompatible pointer type ‘char *’ [-Wincompatible-pointer-types]
+   23 |         [SchemeNorm] =   { col_gray3, col_gray1,  col_gray2 },
+      |                                                   ^~~~~~~~~
+config.h:23:51: note: (near initialization for ‘colors[0][2]’)
+config.h:24:10: error: nonconstant array index in initializer
+   24 |         [SchemeSel]  =   { col_gray4, col_acc,   col_acc },
+      |          ^~~~~~~~~
+config.h:24:10: note: (near initialization for ‘colors’)
+config.h:24:28: warning: initialization of ‘int *’ from incompatible pointer type ‘char *’ [-Wincompatible-pointer-types]
+   24 |         [SchemeSel]  =   { col_gray4, col_acc,   col_acc },
+      |                            ^~~~~~~~~
+config.h:24:28: note: (near initialization for ‘colors[1][0]’)
+config.h:24:39: warning: initialization of ‘int *’ from incompatible pointer type ‘char *’ [-Wincompatible-pointer-types]
+   24 |         [SchemeSel]  =   { col_gray4, col_acc,   col_acc },
+      |                                       ^~~~~~~
+config.h:24:39: note: (near initialization for ‘colors[1][1]’)
+config.h:24:50: warning: initialization of ‘int *’ from incompatible pointer type ‘char *’ [-Wincompatible-pointer-types]
+   24 |         [SchemeSel]  =   { col_gray4, col_acc,   col_acc },
+      |                                                  ^~~~~~~
+config.h:24:50: note: (near initialization for ‘colors[1][2]’)
+config.h:25:28: warning: initialization of ‘int *’ from incompatible pointer type ‘char *’ [-Wincompatible-pointer-types]
+   25 |         [SchemeWarn] =   { col_black, col_yellow, col_red },
+      |                            ^~~~~~~~~
+config.h:25:28: note: (near initialization for ‘colors[2][0]’)
+config.h:25:39: warning: initialization of ‘int *’ from incompatible pointer type ‘char *’ [-Wincompatible-pointer-types]
+   25 |         [SchemeWarn] =   { col_black, col_yellow, col_red },
+      |                                       ^~~~~~~~~~
+config.h:25:39: note: (near initialization for ‘colors[2][1]’)
+config.h:25:51: warning: initialization of ‘int *’ from incompatible pointer type ‘char *’ [-Wincompatible-pointer-types]
+   25 |         [SchemeWarn] =   { col_black, col_yellow, col_red },
+      |                                                   ^~~~~~~
+config.h:25:51: note: (near initialization for ‘colors[2][2]’)
+config.h:26:28: warning: initialization of ‘int *’ from incompatible pointer type ‘char *’ [-Wincompatible-pointer-types]
+   26 |         [SchemeUrgent]=  { col_white, col_red,    col_red },
+      |                            ^~~~~~~~~
+config.h:26:28: note: (near initialization for ‘colors[3][0]’)
+config.h:26:39: warning: initialization of ‘int *’ from incompatible pointer type ‘char *’ [-Wincompatible-pointer-types]
+   26 |         [SchemeUrgent]=  { col_white, col_red,    col_red },
+      |                                       ^~~~~~~
+config.h:26:39: note: (near initialization for ‘colors[3][1]’)
+config.h:26:51: warning: initialization of ‘int *’ from incompatible pointer type ‘char *’ [-Wincompatible-pointer-types]
+   26 |         [SchemeUrgent]=  { col_white, col_red,    col_red },
+      |                                                   ^~~~~~~
+config.h:26:51: note: (near initialization for ‘colors[3][2]’)
+dwm.c: In function ‘setup’:
+dwm.c:1640:41: warning: passing argument 2 of ‘drw_scm_create’ from incompatible pointer type [-Wincompatible-pointer-types]
+ 1640 |   scheme[i] = drw_scm_create(drw, colors[i], 3);
+      |                                   ~~~~~~^~~
+      |                                         |
+      |                                         int **
+In file included from dwm.c:44:
+drw.h:42:43: note: expected ‘const char **’ but argument is of type ‘int **’
+   42 | Clr *drw_scm_create(Drw *drw, const char *clrnames[], size_t clrcount);
+      |                               ~~~~~~~~~~~~^~~~~~~~~~
+dwm.c: In function ‘updateCS’:
+dwm.c:2348:41: warning: passing argument 2 of ‘drw_scm_create’ from incompatible pointer type [-Wincompatible-pointer-types]
+ 2348 |   scheme[i] = drw_scm_create(drw, colors[i], 3);
+      |                                   ~~~~~~^~~
+      |                                         |
+      |                                         int **
+In file included from dwm.c:44:
+drw.h:42:43: note: expected ‘const char **’ but argument is of type ‘int **’
+   42 | Clr *drw_scm_create(Drw *drw, const char *clrnames[], size_t clrcount);
+      |                               ~~~~~~~~~~~~^~~~~~~~~~
+At top level:
+dwm.c:2288:1: warning: ‘centeredfloatingmaster’ defined but not used [-Wunused-function]
+ 2288 | centeredfloatingmaster(Monitor *m)
+      | ^~~~~~~~~~~~~~~~~~~~~~
+dwm.c:2233:1: warning: ‘centeredmaster’ defined but not used [-Wunused-function]
+ 2233 | centeredmaster(Monitor *m)
+      | ^~~~~~~~~~~~~~
+dwm.c:1448:1: warning: ‘schemeToggle’ defined but not used [-Wunused-function]
+ 1448 | schemeToggle(const Arg *arg) {
+      | ^~~~~~~~~~~~
+dwm.c:1433:1: warning: ‘schemeCycle’ defined but not used [-Wunused-function]
+ 1433 | schemeCycle(const Arg *arg) {
+      | ^~~~~~~~~~~
+In file included from dwm.c:279:
+config.h:29:15: warning: ‘statuscolors’ defined but not used [-Wunused-variable]
+   29 | static  char *statuscolors[][3]      = {
+      |               ^~~~~~~~~~~~
+make: *** [Makefile:18: dwm.o] Error 1

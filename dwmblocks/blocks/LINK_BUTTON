@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+
+brave-browser https://www.coinbase.com/price/chainlink > /dev/null &

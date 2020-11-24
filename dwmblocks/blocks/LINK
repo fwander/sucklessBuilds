@@ -1,0 +1,2 @@
+#!/usr/bin/sh
+echo -e "\06$(curl -s https://www.coingecko.com/en/coins/chainlink | grep -e 'price.price">' | head -n 1 | grep -o '>\$.*<' | sed 's/<//g ; s/>/ /g')"
